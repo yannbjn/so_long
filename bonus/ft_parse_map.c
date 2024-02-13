@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:00:05 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/09 13:38:23 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/09 13:49:11 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_gnltomap2(int fd, t_map *map, t_data *data)
 		(free(bigline), ft_error_emptymap(data));
 	map->map = ft_split(bigline, '\n');
 	free(bigline);
-	if (!(map->map))
+	if (!map->map)
 		ft_error_malloc(data, 1);
 	i = -1;
 	map->width = ft_strlen(map->map[++i]);
@@ -63,6 +63,12 @@ void	ft_gnltomap2(int fd, t_map *map, t_data *data)
 	ft_count_ecpn01(map, data);
 }
 
+void	ft_parsing(char const *mapber, int fd, t_map *map, t_data *data)
+{
+	ft_fill_map(map, mapber);
+	ft_gnltomap2(fd, map, data);
+}
+
 void	ft_map(const char *mapber, t_data *data, size_t i)
 {
 	int	fd;
@@ -73,8 +79,7 @@ void	ft_map(const char *mapber, t_data *data, size_t i)
 	fd = open(mapber, O_RDONLY);
 	if (fd < 0 || !ft_check_ber(mapber))
 		ft_error_ber(data);
-	ft_fill_map(&(data->maps[i]), mapber);
-	ft_gnltomap2(fd, &(data->maps[i]), data);
+	ft_parsing(mapber, fd, &(data->maps[i]), data);
 	if (!ft_vert_walls(data->maps[i]) || !ft_topbot_walls(data->maps[i]))
 		ft_error_walls(data);
 	if (data->maps->nb_exit != 1 || data->maps->nb_p != 1)

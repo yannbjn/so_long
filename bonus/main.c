@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:08:10 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/09 14:53:53 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/09 18:22:04 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_launch_game(t_data *data)
 	ft_mlx_init(data);
 	ft_sprites_init(data);
 	ft_display_map(data);
-	ft_displaymovecount(data);
 	ft_display_char(data);
 	mlx_loop_hook(data->mlx, &handle_no_event, data);
 	mlx_hook(data->win, KeyPress, KeyPressMask, &event_keypress, data);
@@ -46,6 +45,3 @@ int	main(int argc, const char **argv)
 //PROTEGER LES RETOURS DES FONCTIONS DE LA MLX QUI MALLOC!!!!!!!!!!!!!!!!!!
 //LEAKS PARSING
 //retirer bool rectangle de init et de struct
-//checker la modif du split grace a funcheck
-//bien tout tester avec funcheck
-//ENLEVER DISPLAYMOVECOUNT!!!!!!!!!!!!!

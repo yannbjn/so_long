@@ -6,15 +6,15 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 19:01:23 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/09 18:14:07 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/12 14:53:00 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
-# include "../minilibx-linux/mlx.h"
+# include "../../libft/libft.h"
+# include "../../minilibx-linux/mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <fcntl.h>
@@ -22,10 +22,10 @@
 # include <stdlib.h>
 # include <string.h>
 # include <sys/types.h>
+# include <time.h>
 
 # define WINDOW_WIDTH 1980
 # define WINDOW_HEIGHT 1020
-
 
 # define TILE_SIZE 32
 
@@ -160,7 +160,7 @@ void			ft_sprites_init(t_data *data);
 
 void			ft_display_map(t_data *data);
 
-void			ft_displaymovecount(t_data *data);
+// void			ft_displaymovecount(t_data *data);
 void			ft_update_counter(t_data *data);
 
 void			ft_display_char(t_data *data);

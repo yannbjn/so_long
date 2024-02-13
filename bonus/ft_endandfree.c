@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:53:01 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/09 13:51:04 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:40:50 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ void	free_maps(t_data *data)
 	i = -1;
 	while (data->maps && data->maps[++i].map)
 		free_tab(data->maps[i].map);
-	if (data->maps)
-		free(data->maps);
+	free(data->maps);
 }
 
 int	free_parse(char *s1, char *s2, int fd)
