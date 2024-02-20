@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:33:33 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/07 16:49:06 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:56:16 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 static void	ft_win_init(t_data *data)
 {
-	data->win = mlx_new_window(data->mlx, \
-				((data->maps[data->i].width + 0) * TILE_SIZE), \
-				((data->maps[data->i].height + 0) * TILE_SIZE), "Cook the cat");
+	size_t	x;
+	size_t	y;
+
+	x = (data->maps[data->i].width) * TILE_SIZE;
+	y = (data->maps[data->i].height) * TILE_SIZE;
+	data->win = mlx_new_window(data->mlx, x, y, "Cook the cat");
 	if (!(data->win))
 		ft_error_malloc(data, 0);
 }

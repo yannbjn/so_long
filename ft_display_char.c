@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:24:03 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/09 18:16:21 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:35:23 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	ft_move_char(t_data *data, t_pos pos, size_t x, size_t y)
 		map->p.y = y;
 		map->p.moves++;
 		ft_display_char(data);
-		ft_update_counter(data);
-		ft_display_e(data, pos.x, pos.y);
+		ft_put_counter(data);
+		ft_display_eorb(data, pos.x, pos.y);
 		if (map->map[y][x] == 'C' && map->nb_collect--)
 		{
 			map->map[y][x] = '0';

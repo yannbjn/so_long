@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:42:39 by yabejani          #+#    #+#             */
-/*   Updated: 2024/01/24 14:37:51 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:23:58 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int		ft_printf(const char *form, ...);
 
 //GNL heap
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 400
+#  define BUFFER_SIZE 42
 # endif
 
 size_t	ft_strlengnl(char *str);

@@ -6,13 +6,13 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:44:45 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/07 14:23:47 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:31:58 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
 
-void	ft_update_counter(t_data *data)
+void	ft_put_counter(t_data *data)
 {
 	t_map	*map;
 

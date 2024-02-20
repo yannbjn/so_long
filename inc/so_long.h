@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 19:01:23 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/09 18:14:07 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:35:23 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 
 # define WINDOW_WIDTH 1980
 # define WINDOW_HEIGHT 1020
-
 
 # define TILE_SIZE 32
 
@@ -76,14 +75,9 @@
 typedef struct s_img
 {
 	void		*mlx_img;
-	char		*addr;
-	int			bpp;
-	int			line_len;
-	int			endian;
 	int			width;
 	int			height;
 }				t_img;
-
 
 typedef struct s_pos
 {
@@ -134,8 +128,7 @@ void			ft_error_malloc(t_data *data, int flag);
 void			ft_error_walls(t_data *data);
 void			ft_error_chars(t_data *data);
 void			ft_error_path(t_data *data);
-void			ft_error_nb_pe(t_data *data);
-void			ft_freeandclose(char *s1, char *s2, int fd);
+void			ft_error_nb_cpe(t_data *data);
 
 int				ft_pos_init(t_pos *pos, size_t x, size_t y);
 void			ft_fill_map(t_map *map, char const *mapber);
@@ -161,21 +154,21 @@ void			ft_sprites_init(t_data *data);
 void			ft_display_map(t_data *data);
 
 void			ft_displaymovecount(t_data *data);
-void			ft_update_counter(t_data *data);
+void			ft_put_counter(t_data *data);
 
 void			ft_display_char(t_data *data);
 int				ft_move_char(t_data *data, t_pos pos, size_t x, size_t y);
 
 void			ft_img_towindow(t_data *data, size_t i, size_t x, size_t y);
-void			ft_display_e(t_data *data, size_t x, size_t y);
+void			ft_display_eorb(t_data *data, size_t x, size_t y);
 
 int				event_keypress(int keysym, t_data *data);
 
-void			ft_end_game(int status, t_data *data);
+void			ft_end_game(char *loseorwin, t_data *data);
 void			free_maps(t_data *data);
-int				free_parse(char *s1, char *s2, int fd);
 void			destroy_mlx(t_data *data);
 void			next_map(t_data *data);
-int				event_destroy(t_data *data);
+int				event_destroy(char *loseorwin, t_data *data);
+int				on_destroy(t_data *data);
 
 #endif

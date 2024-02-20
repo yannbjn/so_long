@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 19:01:23 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/12 14:53:00 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:38:36 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define WINDOW_HEIGHT 1020
 
 # define TILE_SIZE 32
+
+# define ANIM_TIME 175000000
 
 # define WALLC "./textures/wall.xpm"
 # define INDWALLC 0
@@ -71,19 +73,46 @@
 # define INDBACKG 19
 # define CATBURG "./textures/cateatburger.xpm"
 # define INDCATBURG 20
-# define NB_IMG 21
+# define PUMP1 "./textures/pump1.xpm"
+# define INDPUMP1 21
+# define PUMP2 "./textures/pump2.xpm"
+# define INDPUMP2 22
+# define PUMP3 "./textures/pump3.xpm"
+# define INDPUMP3 23
+# define PUMP4 "./textures/pump4.xpm"
+# define INDPUMP4 24
+# define PUMP5 "./textures/pump5.xpm"
+# define INDPUMP5 25
+# define PUMP6 "./textures/pump6.xpm"
+# define INDPUMP6 26
+# define PUMP7 "./textures/pump7.xpm"
+# define INDPUMP7 27
+# define PUMPR "./textures/pumpr.xpm"
+# define INDPUMPR 28
+# define PUMPL "./textures/pumpl.xpm"
+# define INDPUMPL 29
+# define PUMPDR "./textures/pumpdr.xpm"
+# define INDPUMPDR 30
+# define PUMPDL "./textures/pumpdl.xpm"
+# define INDPUMPDL 31
+# define COOK1 "./textures/cook1.xpm"
+# define INDCOOK1 32
+# define COOK2 "./textures/cook2.xpm"
+# define INDCOOK2 33
+# define COOK3 "./textures/cook3.xpm"
+# define INDCOOK3 34
+# define COOK4 "./textures/cook4.xpm"
+# define INDCOOK4 35
+# define COOK5 "./textures/cook5.xpm"
+# define INDCOOK5 36
+# define NB_IMG 37
 
 typedef struct s_img
 {
 	void		*mlx_img;
-	char		*addr;
-	int			bpp;
-	int			line_len;
-	int			endian;
 	int			width;
 	int			height;
 }				t_img;
-
 
 typedef struct s_pos
 {
@@ -124,6 +153,7 @@ typedef struct s_data
 	t_img		*imgs;
 	size_t		i;
 	size_t		n;
+	int			bonus;
 }				t_data;
 
 void			ft_error_args(void);
@@ -134,8 +164,7 @@ void			ft_error_malloc(t_data *data, int flag);
 void			ft_error_walls(t_data *data);
 void			ft_error_chars(t_data *data);
 void			ft_error_path(t_data *data);
-void			ft_error_nb_pe(t_data *data);
-void			ft_freeandclose(char *s1, char *s2, int fd);
+void			ft_error_nb_cpe(t_data *data);
 
 int				ft_pos_init(t_pos *pos, size_t x, size_t y);
 void			ft_fill_map(t_map *map, char const *mapber);
@@ -160,22 +189,31 @@ void			ft_sprites_init(t_data *data);
 
 void			ft_display_map(t_data *data);
 
-// void			ft_displaymovecount(t_data *data);
-void			ft_update_counter(t_data *data);
+void			ft_put_counter(t_data *data);
 
 void			ft_display_char(t_data *data);
 int				ft_move_char(t_data *data, t_pos pos, size_t x, size_t y);
 
 void			ft_img_towindow(t_data *data, size_t i, size_t x, size_t y);
-void			ft_display_e(t_data *data, size_t x, size_t y);
+void			ft_display_eorb(t_data *data, size_t x, size_t y);
+void			ft_diplay_corb(t_data *data, size_t x, size_t y);
 
 int				event_keypress(int keysym, t_data *data);
 
-void			ft_end_game(int status, t_data *data);
+void			ft_end_game(char *loseorwin, t_data *data);
 void			free_maps(t_data *data);
-int				free_parse(char *s1, char *s2, int fd);
 void			destroy_mlx(t_data *data);
 void			next_map(t_data *data);
-int				event_destroy(t_data *data);
+int				event_destroy(char *loseorwin, t_data *data);
+int				on_destroy(t_data *data);
+
+void			new_move(t_data *data, t_pos pos, size_t x, size_t y);
+void			move_npc(t_data *data);
+void			ft_display_npc(t_data *data);
+void			check_for_npc(t_data *data);
+void			ft_seed_time(void);
+int				ft_random_number(void);
+void			ft_sprite_tempo(void);
+int				ft_cook(t_data *data);
 
 #endif

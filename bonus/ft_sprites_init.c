@@ -6,12 +6,11 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:57:55 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/12 14:24:53 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:58:41 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
-#include <stddef.h>
 
 static void	ft_xpmtoimg(t_data *data, size_t i, char *path)
 {
@@ -44,10 +43,31 @@ static void	ft_init_map(t_data *data)
 	ft_xpmtoimg(data, INDCATBURG, CATBURG);
 }
 
+static void	ft_sprites_animations(t_data *data)
+{
+	ft_xpmtoimg(data, INDPUMP1, PUMP1);
+	ft_xpmtoimg(data, INDPUMP2, PUMP2);
+	ft_xpmtoimg(data, INDPUMP3, PUMP3);
+	ft_xpmtoimg(data, INDPUMP4, PUMP4);
+	ft_xpmtoimg(data, INDPUMP5, PUMP5);
+	ft_xpmtoimg(data, INDPUMP6, PUMP6);
+	ft_xpmtoimg(data, INDPUMP7, PUMP7);
+	ft_xpmtoimg(data, INDPUMPR, PUMPR);
+	ft_xpmtoimg(data, INDPUMPL, PUMPL);
+	ft_xpmtoimg(data, INDPUMPDR, PUMPDR);
+	ft_xpmtoimg(data, INDPUMPDL, PUMPDL);
+	ft_xpmtoimg(data, INDCOOK1, COOK1);
+	ft_xpmtoimg(data, INDCOOK2, COOK2);
+	ft_xpmtoimg(data, INDCOOK3, COOK3);
+	ft_xpmtoimg(data, INDCOOK4, COOK4);
+	ft_xpmtoimg(data, INDCOOK5, COOK5);
+}
+
 void	ft_sprites_init(t_data *data)
 {
 	data->imgs = ft_calloc(NB_IMG, sizeof(t_img));
 	if (!(data->imgs))
 		ft_error_malloc(data, 0);
 	ft_init_map(data);
+	ft_sprites_animations(data);
 }

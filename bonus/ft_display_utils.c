@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 14:23:14 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/09 15:24:06 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:35:23 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_img_towindow(t_data *data, size_t i, size_t x, size_t y)
 	x * TILE_SIZE + TILE_SIZE, y * TILE_SIZE + TILE_SIZE);
 }
 
-void	ft_display_e(t_data *data, size_t x, size_t y)
+void	ft_display_eorb(t_data *data, size_t x, size_t y)
 {
 	t_map	*map;
 

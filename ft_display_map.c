@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 13:40:47 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/07 14:24:36 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:35:23 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	ft_display_wc(t_data *data, t_map *map)
 	}
 }
 
-static void	ft_display_0(t_data *data, t_map *map)
+static void	ft_display_eorband0(t_data *data, t_map *map)
 {
 	size_t	x;
 	size_t	y;
@@ -58,7 +58,7 @@ static void	ft_display_0(t_data *data, t_map *map)
 		x = -1;
 		while (++x < map->width)
 		{
-			ft_display_e(data, x, y);
+			ft_display_eorb(data, x, y);
 		}
 	}
 	ft_img_towindow(data, INDCLOSEDE, map->exit.x, map->exit.y);
@@ -66,7 +66,7 @@ static void	ft_display_0(t_data *data, t_map *map)
 
 void	ft_display_map(t_data *data)
 {
-	ft_display_0(data, &(data->maps[data->i]));
+	ft_display_eorband0(data, &(data->maps[data->i]));
 	ft_display_wc(data, &(data->maps[data->i]));
 	ft_display_corners(data, &(data->maps[data->i]));
 }

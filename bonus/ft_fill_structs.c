@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 14:35:54 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/08 17:14:25 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/19 21:15:34 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ void	ft_fill_data(t_data *data, size_t n)
 	data->imgs = NULL;
 	data->i = 0;
 	data->n = n;
+	data->bonus = -1;
 }

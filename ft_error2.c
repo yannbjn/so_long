@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:26:59 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/09 13:54:52 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/17 13:43:25 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	ft_error_path(t_data *data)
 	exit(1);
 }
 
-void	ft_error_nb_pe(t_data *data)
+void	ft_error_nb_cpe(t_data *data)
 {
 	ft_printf("Error\nMap must have at least one\
- and only one starting pos and exit!\n");
+ C, and only one P and E!\n");
 	free_maps(data);
 	exit(1);
 }
@@ -44,11 +44,4 @@ void	ft_error_malloc(t_data *data, int flag)
 	if (flag == 1)
 		exit(1);
 	exit(1);
-}
-
-void	ft_freeandclose(char *s1, char *s2, int fd)
-{
-	free(s1);
-	free(s2);
-	close(fd);
 }

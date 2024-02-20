@@ -6,11 +6,25 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:00:05 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/09 13:38:23 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:46:39 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
+
+static void	ft_check_returnline(t_data *data, char *bigline)
+{
+	size_t	i;
+
+	i = -1;
+	if (bigline[0] == '\n')
+		(free(bigline), ft_error_rect(data));
+	while (bigline[++i])
+	{
+		if (bigline[i] == '\n' && bigline[i + 1] == '\n')
+			(free(bigline), ft_error_rect(data));
+	}
+}
 
 char	*ft_gnltomap1(int fd, t_data *data)
 {
@@ -48,10 +62,13 @@ void	ft_gnltomap2(int fd, t_map *map, t_data *data)
 	bigline = ft_gnltomap1(fd, data);
 	if (!bigline || ft_strlen(bigline) < 17)
 		(free(bigline), ft_error_emptymap(data));
+	ft_check_returnline(data, bigline);
 	map->map = ft_split(bigline, '\n');
 	free(bigline);
 	if (!(map->map))
-		ft_error_malloc(data, 1);
+		ft_error_malloc(data, 0);
+	if (!(map->map[0]))
+		ft_error_emptymap(data);
 	i = -1;
 	map->width = ft_strlen(map->map[++i]);
 	while (map->map[++i] && ++(map->height))
@@ -69,7 +86,7 @@ void	ft_map(const char *mapber, t_data *data, size_t i)
 
 	fd = open(mapber, __O_DIRECTORY);
 	if (fd > 0)
-		ft_error_ber(data);
+		(close(fd), ft_error_ber(data));
 	fd = open(mapber, O_RDONLY);
 	if (fd < 0 || !ft_check_ber(mapber))
 		ft_error_ber(data);
@@ -77,8 +94,9 @@ void	ft_map(const char *mapber, t_data *data, size_t i)
 	ft_gnltomap2(fd, &(data->maps[i]), data);
 	if (!ft_vert_walls(data->maps[i]) || !ft_topbot_walls(data->maps[i]))
 		ft_error_walls(data);
-	if (data->maps->nb_exit != 1 || data->maps->nb_p != 1)
-		ft_error_nb_pe(data);
+	if (data->maps->nb_exit != 1 || data->maps->nb_p != 1 \
+		|| !data->maps->nb_collect)
+		ft_error_nb_cpe(data);
 	ft_check_path(&(data->maps[i]), data);
 }
 

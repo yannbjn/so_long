@@ -56,7 +56,9 @@ BC_FILE		=	./bonus/main.c \
 				./bonus/ft_events.c \
 				./bonus/ft_mlx_init.c \
 				./bonus/ft_sprites_init.c \
-				./bonus/ft_utils.c
+				./bonus/ft_utils.c \
+				./bonus/ft_npc.c \
+				./bonus/ft_npc_utils.c
 
 OBJS		=	$(C_FILE:.c=.o)
 
@@ -67,6 +69,8 @@ BOBJS		=	$(BC_FILE:.c=.o)
 	@$(CC) $(FLAG) -c $< -o $@
 
 all:	$(NAME)
+
+ball:	$(NAME) $(BNAME)
 
 lib:
 	@make -C $(LIBFT_PATH)
@@ -91,6 +95,8 @@ fclean: clean
 	@make fclean -C $(LIBFT_PATH)
 
 re: fclean all
+
+bre: fclean ball
 
 bonus: $(BNAME)
 
