@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:42:39 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/19 14:23:58 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:19:10 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,5 @@ char	*ft_get_next_line(int fd);
 char	*ft_get_line(char *save);
 char	*ft_clean_save(char *save);
 char	*ft_read(int fd, char *save);
-
-//GNL stack
-
-char	*ft_gnl_stack(int fd);
-char	*ft_joinfree(char *s1, char *s2, int nb_alloc);
 
 #endif

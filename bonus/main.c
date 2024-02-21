@@ -6,13 +6,13 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:08:10 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/20 17:06:23 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:53:38 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
 
-static void	ft_put_future(t_data *data)
+static void	ft_anim_surprise(t_data *data)
 {
 	char	*future;
 	size_t	y;
@@ -22,11 +22,38 @@ static void	ft_put_future(t_data *data)
 	mlx_string_put(data->mlx, data->win, 10, y - 10, 0xFF0000, future);
 }
 
+static void	ft_win_init(t_data *data)
+{
+	size_t	x;
+	size_t	y;
+	char	*lvl;
+	char	*lvlnb;
+
+	lvlnb = ft_itoa(data->i + 1);
+	lvl = ft_strjoin("Cook the cat lvl ", lvlnb);
+	x = (data->maps[data->i].width + 2) * TILE_SIZE;
+	y = (data->maps[data->i].height + 2) * TILE_SIZE;
+	data->win = mlx_new_window(data->mlx, x, y, lvl);
+	if (!(data->win))
+		(free(lvlnb), free(lvl), ft_error_malloc(data, 0));
+	free(lvlnb);
+	free(lvl);
+}
+
+void	ft_mlx_init(t_data *data)
+{
+	data->mlx = mlx_init();
+	if (!(data->mlx))
+		ft_error_malloc(data, 0);
+	ft_win_init(data);
+}
+
 void	ft_launch_game(t_data *data)
 {
 	ft_mlx_init(data);
 	ft_sprites_init(data);
-	ft_put_future(data);
+	ft_put_counter(data);
+	ft_anim_surprise(data);
 	ft_display_map(data);
 	ft_display_char(data);
 	if (data->maps[data->i].nb_npc)

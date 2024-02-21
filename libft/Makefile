@@ -12,7 +12,7 @@ SRCS		= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 			ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 			ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 			ft_lstclear.c ft_lstiter.c ft_lstmap.c \
-			get_next_line_bonus.c get_next_line_utils_bonus.c ft_get_next_line.c \
+			get_next_line_bonus.c get_next_line_utils_bonus.c \
 			ft_joinfree.c \
 			ft_printf.c ft_print_di.c ft_print_p.c ft_print_s.c ft_print_u.c \
 			ft_print_xx.c 

@@ -36,7 +36,6 @@ C_FILE		=	main.c \
 				ft_display_utils.c \
 				ft_endandfree.c \
 				ft_events.c \
-				ft_mlx_init.c \
 				ft_sprites_init.c \
 				ft_utils.c
 
@@ -54,7 +53,6 @@ BC_FILE		=	./bonus/main.c \
 				./bonus/ft_display_utils.c \
 				./bonus/ft_endandfree.c \
 				./bonus/ft_events.c \
-				./bonus/ft_mlx_init.c \
 				./bonus/ft_sprites_init.c \
 				./bonus/ft_utils.c \
 				./bonus/ft_npc.c \
@@ -75,10 +73,10 @@ $(LIBFT_LIB):
 	make -C $(LIBFT_PATH)
 
 $(MLX_LIB):
-	make -sC $(MLX_PATH)
+	make -C $(MLX_PATH)
 
 $(NAME): $(LIBFT_LIB) $(MLX_LIB) $(OBJS)
-	$(CC) $(OBJS) $(LIBFT_LIB) $(MLX_EX) -o $(NAME) -lm 
+	$(CC) $(OBJS) $(LIBFT_LIB) $(MLX_EX) -o $(NAME) -lm
 
 clean:
 	make clean -sC $(MLX_PATH)
@@ -98,6 +96,6 @@ bre: fclean ball
 bonus: $(BNAME)
 
 $(BNAME): $(LIBFT_LIB) $(MLX_LIB) $(BOBJS)
-	@$(CC) $(BOBJS) $(LIBFT_LIB) $(MLX_EX) -o $(BNAME) -lm 
+	$(CC) $(BOBJS) $(LIBFT_LIB) $(MLX_EX) -o $(BNAME) -lm 
 
 .PHONY: all clean fclean re bonus
