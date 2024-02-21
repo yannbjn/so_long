@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 16:22:09 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/20 17:39:37 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:49:00 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,6 @@ static int	rand_pos(char **map, t_pos *pos, t_pos foe, t_pos p)
 	while (init_from_dir(pos, foe, r) && !npc_can_move(map, pos->x, pos->y))
 		r = ft_random_number();
 	return (1);
-}
-
-void	ft_diplay_corb(t_data *data, size_t x, size_t y)
-{
-	t_map	*map;
-
-	map = &(data->maps[data->i]);
-	if (map->map[y][x] == 'C' && map->nb_collect)
-		ft_img_towindow(data, INDCOLLECT1, x, y);
-	else
-		ft_img_towindow(data, INDBACKG, x, y);
 }
 
 void	move_npc(t_data *data)

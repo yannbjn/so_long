@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:08:10 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/20 17:09:55 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:24:10 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,3 +44,5 @@ int	main(int argc, const char **argv)
 //Fix l'animation 
 //(trouver comment faire avec time.h au lieu de boucle while degueulasse)
 //leaks onlynewline
+//clock get time pour l'anim
+//get time of the day

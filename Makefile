@@ -65,34 +65,31 @@ OBJS		=	$(C_FILE:.c=.o)
 BOBJS		=	$(BC_FILE:.c=.o)
 
 .c.o:
-	@printf "\r\033[K[so_long] \033[0;32mBuilding : $<\033[0m\n"
-	@$(CC) $(FLAG) -c $< -o $@
+	$(CC) $(FLAG) -c $< -o $@
 
 all:	$(NAME)
 
 ball:	$(NAME) $(BNAME)
 
-lib:
-	@make -C $(LIBFT_PATH)
+$(LIBFT_LIB):
+	make -C $(LIBFT_PATH)
 
-mlx:
-	@printf "\r\033[K[so_long] \033[0;32mLinking...\033[0m"
-	@make -sC $(MLX_PATH)
+$(MLX_LIB):
+	make -sC $(MLX_PATH)
 
-$(NAME): lib mlx $(OBJS)
-	@$(CC) $(OBJS) $(LIBFT_LIB) $(MLX_EX) -o $(NAME) -lm 
-	@printf "\r\033[K[so_long] \033[0;32mDone!\033[0m\n"
+$(NAME): $(LIBFT_LIB) $(MLX_LIB) $(OBJS)
+	$(CC) $(OBJS) $(LIBFT_LIB) $(MLX_EX) -o $(NAME) -lm 
 
 clean:
-	@make clean -sC $(MLX_PATH)
-	@make clean -sC $(LIBFT_PATH)
-	@rm -f $(OBJS)
-	@rm -f $(BOBJS)
+	make clean -sC $(MLX_PATH)
+	make clean -sC $(LIBFT_PATH)
+	rm -f $(OBJS)
+	rm -f $(BOBJS)
 
 fclean: clean
-	@rm -f $(NAME)
-	@rm -f $(BNAME)
-	@make fclean -C $(LIBFT_PATH)
+	rm -f $(NAME)
+	rm -f $(BNAME)
+	make fclean -C $(LIBFT_PATH)
 
 re: fclean all
 
@@ -100,8 +97,7 @@ bre: fclean ball
 
 bonus: $(BNAME)
 
-$(BNAME): lib mlx $(BOBJS)
+$(BNAME): $(LIBFT_LIB) $(MLX_LIB) $(BOBJS)
 	@$(CC) $(BOBJS) $(LIBFT_LIB) $(MLX_EX) -o $(BNAME) -lm 
-	@printf "\r\033[K[so_long] \033[0;32mDone!\033[0m\n"
 
 .PHONY: all clean fclean re bonus

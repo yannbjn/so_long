@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:57:55 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/20 15:35:44 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:05:31 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ static void	ft_xpmtoimg(t_data *data, size_t i, char *path)
 {
 	data->imgs[i].mlx_img = mlx_xpm_file_to_image(data->mlx, path,
 			&data->imgs[i].width, &data->imgs[i].height);
+	if (!data->imgs[i].mlx_img)
+	{
+		free_maps(data);
+		destroy_mlx(data);
+		ft_printf("Error\nError bad xpm\n");
+		exit(1);
+	}
 }
 
 static void	ft_init_map(t_data *data)

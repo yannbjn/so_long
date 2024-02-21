@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 18:26:59 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/17 13:43:25 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:26:01 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	ft_error_nb_cpe(t_data *data)
 void	ft_error_malloc(t_data *data, int flag)
 {
 	ft_printf("Error\nError malloc\n");
-	exit(1);
 	if (flag == 0 && data->maps)
 		free_maps(data);
 	if (flag == 1)
