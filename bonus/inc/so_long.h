@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 19:01:23 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/20 17:38:36 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:44:31 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,7 @@
 # include <sys/types.h>
 # include <time.h>
 
-# define WINDOW_WIDTH 1980
-# define WINDOW_HEIGHT 1020
-
 # define TILE_SIZE 32
-
-# define ANIM_TIME 175000000
 
 # define WALLC "./textures/wall.xpm"
 # define INDWALLC 0
