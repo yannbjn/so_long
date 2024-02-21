@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 16:49:58 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/21 13:02:08 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:46:22 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ void	ft_display_npc(t_data *data)
 	}
 }
 
-void	check_for_npc(t_data *data)
+int	ft_check_npc(t_data *data)
 {
 	size_t	i;
 	t_pos	*pos;
 
 	if (!data->maps[data->i].nb_npc)
-		return ;
+		return (-1);
 	i = -1;
 	pos = &(data->maps[data->i].p);
 	while (++i < data->maps[data->i].nb_npc)
@@ -75,8 +75,10 @@ void	check_for_npc(t_data *data)
 		pos->y == data->maps[data->i].npc[i].y)
 		{
 			data->bonus = 2;
-			ft_img_towindow(data, INDCATBBQ, pos->x, pos->y);
+			ft_img_towindow(data, INDMEAT, pos->x, pos->y);
 			ft_printf("Press a key to continue\n");
+			return (1);
 		}
 	}
+	return (2);
 }

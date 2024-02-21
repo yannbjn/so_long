@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 19:01:23 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/21 19:44:31 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:46:54 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,9 @@
 # define INDCOOK4 35
 # define COOK5 "./textures/cook5.xpm"
 # define INDCOOK5 36
-# define NB_IMG 37
+# define MEAT "./textures/meat.xpm"
+# define INDMEAT 37
+# define NB_IMG 38
 
 typedef struct s_img
 {
@@ -202,10 +204,10 @@ void			next_map(t_data *data);
 int				event_destroy(char *loseorwin, t_data *data);
 int				on_destroy(t_data *data);
 
-void			new_move(t_data *data, t_pos pos, size_t x, size_t y);
-void			move_npc(t_data *data);
+void			ft_move_both(t_data *data, t_pos pos, size_t x, size_t y);
+void			ft_move_npc(t_data *data);
 void			ft_display_npc(t_data *data);
-void			check_for_npc(t_data *data);
+int				ft_check_npc(t_data *data);
 void			ft_seed_time(void);
 int				ft_random_number(void);
 void			ft_sprite_tempo(void);

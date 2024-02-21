@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 13:40:47 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/21 16:44:42 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:00:58 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,23 @@ static void	ft_display_eorband0(t_data *data, t_map *map)
 	ft_img_towindow(data, INDCLOSEDE, map->exit.x, map->exit.y);
 }
 
+void	ft_display_char(t_data *data)
+{
+	t_map	*map;
+
+	map = &(data->maps[data->i]);
+	if (map->map[map->p.y][map->p.x] == 'E' && map->nb_collect)
+		ft_img_towindow(data, INDCATBBQ, map->p.x, map->p.y);
+	else if (map->map[map->p.y][map->p.x] == 'C')
+		ft_img_towindow(data, INDCATBURG, map->p.x, map->p.y);
+	else
+		ft_img_towindow(data, INDCATINIT + map->p.dir, map->p.x, map->p.y);
+}
+
 void	ft_display_map(t_data *data)
 {
 	ft_display_eorband0(data, &(data->maps[data->i]));
 	ft_display_wc(data, &(data->maps[data->i]));
 	ft_display_corners(data, &(data->maps[data->i]));
+	ft_display_char(data);
 }

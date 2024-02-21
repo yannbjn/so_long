@@ -1,29 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_char.c                                  :+:      :+:    :+:   */
+/*   ft_move_char.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 15:24:03 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/20 17:35:23 by yabejani         ###   ########.fr       */
+/*   Created: 2024/02/02 13:55:47 by yabejani          #+#    #+#             */
+/*   Updated: 2024/02/21 18:05:28 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
-
-void	ft_display_char(t_data *data)
-{
-	t_map	*map;
-
-	map = &(data->maps[data->i]);
-	if (map->map[map->p.y][map->p.x] == 'E' && map->nb_collect)
-		ft_img_towindow(data, INDCATBBQ, map->p.x, map->p.y);
-	else if (map->map[map->p.y][map->p.x] == 'C')
-		ft_img_towindow(data, INDCATBURG, map->p.x, map->p.y);
-	else
-		ft_img_towindow(data, INDCATINIT + map->p.dir, map->p.x, map->p.y);
-}
 
 int	ft_move_char(t_data *data, t_pos pos, size_t x, size_t y)
 {

@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:53:01 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/17 14:07:58 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:25:51 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	on_destroy(t_data *data)
 	free_maps(data);
 	free(data->imgs);
 	free(data->mlx);
+	ft_printf("You lost\n");
 	exit(0);
 	return (0);
 }

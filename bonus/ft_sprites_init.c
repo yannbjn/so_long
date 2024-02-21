@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:57:55 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/20 21:26:18 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:45:17 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	ft_sprites_animations(t_data *data)
 	ft_xpmtoimg(data, INDCOOK3, COOK3);
 	ft_xpmtoimg(data, INDCOOK4, COOK4);
 	ft_xpmtoimg(data, INDCOOK5, COOK5);
+	ft_xpmtoimg(data, INDMEAT, MEAT);
 }
 
 void	ft_sprites_init(t_data *data)

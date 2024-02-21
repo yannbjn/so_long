@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:02:47 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/21 16:43:32 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:33:49 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ int	event_keypress(int keypress, t_data *data)
 	if (keypress == XK_Escape || (data->bonus == 2))
 		ft_end_game("You lost\n", data);
 	if (data->bonus == 1 && (keypress == XK_s || keypress == XK_Down))
-		(ft_set_dir(data, 0), new_move(data, pos, pos.x, pos.y + 1));
+		(ft_set_dir(data, 0), ft_move_both(data, pos, pos.x, pos.y + 1));
 	if (data->bonus == 1 && (keypress == XK_a || keypress == XK_Left))
-		(ft_set_dir(data, 3), new_move(data, pos, pos.x - 1, pos.y));
+		(ft_set_dir(data, 3), ft_move_both(data, pos, pos.x - 1, pos.y));
 	if (data->bonus == 1 && (keypress == XK_w || keypress == XK_Up))
-		(ft_set_dir(data, 1), new_move(data, pos, pos.x, pos.y - 1));
+		(ft_set_dir(data, 1), ft_move_both(data, pos, pos.x, pos.y - 1));
 	if (data->bonus == 1 && (keypress == XK_d || keypress == XK_Right))
-		(ft_set_dir(data, 2), new_move(data, pos, pos.x + 1, pos.y));
+		(ft_set_dir(data, 2), ft_move_both(data, pos, pos.x + 1, pos.y));
 	return (0);
 }

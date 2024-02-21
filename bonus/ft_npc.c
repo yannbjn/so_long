@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 16:22:09 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/20 17:49:00 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:44:27 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,70 +19,41 @@ static int	npc_can_move(char **map, size_t x, size_t y)
 	return (0);
 }
 
-static int	is_pos_player(char **map, t_pos *pos, t_pos npc, t_pos p)
+static int	ft_dir_npc(t_pos *pos, t_pos npc, int dir)
 {
-	int	x;
-
-	x = -1;
-	if (p.y == npc.y && p.x == npc.x + 1 && ft_pos_init(pos, npc.x + 1, npc.y))
-		return (0);
-	else if (npc_can_move(map, npc.x + 1, npc.y))
-		x--;
-	if (p.y == npc.y && p.x == npc.x - 1 && ft_pos_init(pos, npc.x - 1, npc.y))
-		return (1);
-	else if (npc_can_move(map, npc.x - 1, npc.y))
-		x--;
-	if (p.y == npc.y + 1 && p.x == npc.x && ft_pos_init(pos, npc.x, npc.y + 1))
-		return (2);
-	else if (npc_can_move(map, npc.x, npc.y + 1))
-		x--;
-	if (p.y == npc.y - 1 && p.x == npc.x && ft_pos_init(pos, npc.x, npc.y - 1))
-		return (3);
-	else if (npc_can_move(map, npc.x, npc.y - 1))
-		x--;
-	return (x);
-}
-
-static int	init_from_dir(t_pos *pos, t_pos foe, int dir)
-{
-	if (!dir && ft_pos_init(pos, foe.x + 1, foe.y))
+	if (!dir && ft_pos_init(pos, npc.x + 1, npc.y))
 		pos->dir = dir;
-	if (dir == 1 && ft_pos_init(pos, foe.x - 1, foe.y))
+	if (dir == 1 && ft_pos_init(pos, npc.x - 1, npc.y))
 		pos->dir = dir;
-	if (dir == 2 && ft_pos_init(pos, foe.x, foe.y + 1))
+	if (dir == 2 && ft_pos_init(pos, npc.x, npc.y + 1))
 		pos->dir = dir;
-	if (dir == 3 && ft_pos_init(pos, foe.x, foe.y - 1))
+	if (dir == 3 && ft_pos_init(pos, npc.x, npc.y - 1))
 		pos->dir = dir;
 	return (1);
 }
 
-static int	rand_pos(char **map, t_pos *pos, t_pos foe, t_pos p)
+static int	rand_pos(char **map, t_pos *pos, t_pos npc)
 {
 	int	r;
 
-	ft_seed_time();
-	r = is_pos_player(map, pos, foe, p);
-	if (r == -1)
-		return (0);
-	if (r >= 0)
-		return (pos->dir = r, 1);
 	r = ft_random_number();
-	while (init_from_dir(pos, foe, r) && !npc_can_move(map, pos->x, pos->y))
+	while (ft_dir_npc(pos, npc, r) && !npc_can_move(map, pos->x, pos->y))
 		r = ft_random_number();
 	return (1);
 }
 
-void	move_npc(t_data *data)
+void	ft_move_npc(t_data *data)
 {
 	t_map		*map;
 	t_pos		pos;
 	size_t		i;
 
+	ft_seed_time();
 	map = &(data->maps[data->i]);
 	i = -1;
 	while (++i < map->nb_npc)
 	{
-		if (rand_pos(map->map, &pos, map->npc[i], map->p))
+		if (rand_pos(map->map, &pos, map->npc[i]))
 		{
 			ft_diplay_corb(data, map->npc[i].x, map->npc[i].y);
 			ft_img_towindow(data, INDPUMPR + pos.dir, pos.x, pos.y);

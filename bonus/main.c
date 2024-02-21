@@ -6,13 +6,13 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:08:10 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/21 16:53:38 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:13:15 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/so_long.h"
 
-static void	ft_anim_surprise(t_data *data)
+static void	ft_print_surprise(t_data *data)
 {
 	char	*future;
 	size_t	y;
@@ -53,9 +53,8 @@ void	ft_launch_game(t_data *data)
 	ft_mlx_init(data);
 	ft_sprites_init(data);
 	ft_put_counter(data);
-	ft_anim_surprise(data);
+	ft_print_surprise(data);
 	ft_display_map(data);
-	ft_display_char(data);
 	if (data->maps[data->i].nb_npc)
 		ft_display_npc(data);
 	data->bonus = 1;

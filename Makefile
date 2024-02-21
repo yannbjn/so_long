@@ -30,12 +30,12 @@ C_FILE		=	main.c \
 				ft_check_path.c \
 				ft_error.c \
 				ft_error2.c \
-				ft_display_char.c \
 				ft_display_count.c \
 				ft_display_map.c \
 				ft_display_utils.c \
 				ft_endandfree.c \
 				ft_events.c \
+				ft_move_char.c \
 				ft_sprites_init.c \
 				ft_utils.c
 
@@ -47,7 +47,7 @@ BC_FILE		=	./bonus/main.c \
 				./bonus/ft_check_path.c \
 				./bonus/ft_error.c \
 				./bonus/ft_error2.c \
-				./bonus/ft_display_char.c \
+				./bonus/ft_move_char.c \
 				./bonus/ft_display_count.c \
 				./bonus/ft_display_map.c \
 				./bonus/ft_display_utils.c \
