@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 15:02:47 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/21 18:33:49 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/22 14:05:01 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,10 @@ int	event_keypress(int keypress, t_data *data)
 		(set_bonus(data, -1), next_map(data));
 	if (keypress == 'f')
 		ft_future(data);
-	if (keypress == XK_Escape || (data->bonus == 2))
+	if (data->bonus == 2)
 		ft_end_game("You lost\n", data);
+	if (keypress == XK_Escape)
+		ft_end_game("Exit\n", data);
 	if (data->bonus == 1 && (keypress == XK_s || keypress == XK_Down))
 		(ft_set_dir(data, 0), ft_move_both(data, pos, pos.x, pos.y + 1));
 	if (data->bonus == 1 && (keypress == XK_a || keypress == XK_Left))

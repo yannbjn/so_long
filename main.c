@@ -6,7 +6,7 @@
 /*   By: yabejani <yabejani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:08:10 by yabejani          #+#    #+#             */
-/*   Updated: 2024/02/21 18:04:44 by yabejani         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:33:16 by yabejani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_launch_game(t_data *data)
 	ft_sprites_init(data);
 	ft_display_map(data);
 	mlx_hook(data->win, KeyPress, KeyPressMask, &event_keypress, data);
-	mlx_hook(data->win, DestroyNotify, 0, &on_destroy, data);
+	mlx_hook(data->win, DestroyNotify, 0L, &on_destroy, data);
 	mlx_loop(data->mlx);
 }
 
